@@ -1,0 +1,8 @@
+spring:
+  application:
+    name: twitter-accounts
+  data:
+    mongodb:
+      uri: mongodb://localhost:27017/twitter
+server:
+  port: 8085

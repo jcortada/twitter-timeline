@@ -21,7 +21,7 @@ public class TweetEntity {
 	@Id
 	private String id;
 	private String text;
-	private Date date;
+	private Date createdAt;
 
 	//@DBRef
 	private String owner;

@@ -45,7 +45,9 @@ public class Devs4jTwitterAccountsApplication implements CommandLineRunner {
 			String username = firstName.substring(0, 1).toLowerCase() + lastName.toLowerCase();
 			AccountDto build = AccountDto.builder().firstname(firstName).lastname(lastName)
 					.username(cleanString(username))
-					.password("devs4j").build();
+					.password("devs4j")
+					.isCelebrity(false)
+					.build();
 
 			build.setAccountIds(list);
 

@@ -9,5 +9,6 @@ public class Devs4jTweetsFeedApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(Devs4jTweetsFeedApplication.class, args);
 	}
+	
 
 }

@@ -25,6 +25,8 @@ public class AccountEntity {
 	private String username;
 	private String password;
 	
+	private boolean isCelebrity;
+	
 	//@DBRef
 	private List<String> accountIds; 
 }

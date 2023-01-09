@@ -19,5 +19,7 @@ public class AccountDto {
 	private String username;
 	private String password;
 	
+	private boolean isCelebrity;
+
 	private List<String> accountIds; 
 }

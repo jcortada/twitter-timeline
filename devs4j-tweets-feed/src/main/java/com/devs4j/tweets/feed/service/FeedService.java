@@ -2,6 +2,7 @@ package com.devs4j.tweets.feed.service;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cloud.stream.function.StreamBridge;
 import org.springframework.stereotype.Service;
 
 import com.devs4j.tweets.feed.model.dto.TweetDto;
@@ -10,6 +11,7 @@ import com.devs4j.tweets.feed.repository.TweetRepository;
 
 @Service
 public class FeedService {
+	private static String topic = "tweetBinding-out-0";
 
 	@Autowired
 	private TweetRepository repository;
@@ -17,9 +19,19 @@ public class FeedService {
 	@Autowired
 	private ModelMapper mapper;
 	
-	public void save(TweetDto tweetDto) {
+	@Autowired
+	private StreamBridge streamBridge;
+	
+	public TweetDto save(TweetDto tweetDto) {
 		TweetEntity tweetEntity = mapper.map(tweetDto, TweetEntity.class);
 		
-		repository.save(tweetEntity);
+		TweetEntity entity = repository.save(tweetEntity);
+		
+		tweetDto.setId(entity.getId());
+		
+		streamBridge.send(topic, entity);
+		
+		return tweetDto;
+		
 	}
 }

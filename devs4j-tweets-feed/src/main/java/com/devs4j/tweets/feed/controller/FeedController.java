@@ -22,8 +22,8 @@ public class FeedController {
 	@PostMapping
 	public ResponseEntity<TweetDto> post(@RequestBody TweetDto tweetDto) {
 
-		tweetDto.setDate(new Date());
-		feedService.save(tweetDto);
+		tweetDto.setCreatedAt(new Date());
+		tweetDto = feedService.save(tweetDto);
 
 		return ResponseEntity.ok(tweetDto);
 	}

@@ -1,6 +1,9 @@
 spring:
   application:
     name: tweets-feed
+  output:
+    ansi:
+      enabled: ALWAYS
   data:
     mongodb:
       uri: mongodb://localhost:27017/twitter
@@ -17,11 +20,29 @@ spring:
 server:
   port: 8086
 
+        
 management:
   endpoints:
     web:
       exposure:
-        include:
-        - metrics
-        
-        
+        include: "*"
+  tracing:
+    sampling:
+      probability: 1.0
+  metrics:
+    distribution:
+      percentiles-histogram:
+        greeting: true
+        http:
+          server:
+            requests: true
+
+logging:
+  pattern:
+    level: "%5p [${spring.application.name:},%X{traceId:-},%X{spanId:-}]"
+  level:
+      org:
+        springframework:
+          web:
+            servlet:
+              DispatcherServlet: DEBUG

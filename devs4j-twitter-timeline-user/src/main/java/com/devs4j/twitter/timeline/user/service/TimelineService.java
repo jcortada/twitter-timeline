@@ -2,6 +2,7 @@ package com.devs4j.twitter.timeline.user.service;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Optional;
 import java.util.function.Consumer;
 
 import org.modelmapper.ModelMapper;
@@ -9,8 +10,12 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
+import org.springframework.core.ParameterizedTypeReference;
+import org.springframework.http.HttpMethod;
+import org.springframework.http.ResponseEntity;
 import org.springframework.messaging.Message;
 import org.springframework.stereotype.Component;
+import org.springframework.web.client.RestTemplate;
 
 import com.devs4j.twitter.timeline.user.Repository.UserTimelineRepository;
 import com.devs4j.twitter.timeline.user.model.dto.TweetDto;
@@ -25,6 +30,9 @@ public class TimelineService {
 	@Autowired
 	UserTimelineRepository timelineRepository;
 
+    @Autowired
+    private RestTemplate restTemplate;
+    
 	@Autowired
 	ModelMapper mapper;
 
@@ -35,7 +43,7 @@ public class TimelineService {
 			
 			TweetDto tweetDto = msg.getPayload();
 			
-			UserTimelineEntity entity = findById(tweetDto.getOwner());
+			UserTimelineEntity entity = update(tweetDto.getOwner());
 			
 			entity.getTweets().add(tweetDto.getId());
 			
@@ -58,7 +66,7 @@ public class TimelineService {
 		UserTimelineEntity save = timelineRepository.save(entity);
 	}
 
-	public UserTimelineEntity findById(String id) {
+	public UserTimelineEntity update(String id) {
 
 		return timelineRepository.findById(id).orElseGet(() -> {
 			return timelineRepository.save(UserTimelineEntity
@@ -68,5 +76,33 @@ public class TimelineService {
 					.build());
 		});
 		
+	}
+	
+	public Optional<UserTimelineDto> findById(String id) {
+
+		Optional<UserTimelineEntity> entity = timelineRepository.findById(id);
+		
+		if(entity.isPresent()) {
+			return Optional.of(mapper.map(entity.get(), UserTimelineDto.class));
+		}else {
+			return Optional.empty();
+		}
+	}
+	
+	
+	public ResponseEntity<TweetDto>  getTweet(String tweetId) {
+		
+		log.info("tweetId: " + tweetId);
+		ResponseEntity<TweetDto> exchange =
+                this.restTemplate.exchange(
+                        "http://tweets-feed/feed/{tweetId}",
+                        HttpMethod.GET,
+                        null,
+                        new ParameterizedTypeReference<TweetDto>() {},
+                        tweetId);
+
+		log.info("tweet: " + exchange.getBody());
+		
+		return exchange;
 	}
 }

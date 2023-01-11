@@ -1,0 +1,33 @@
+spring:
+  application:
+    name: timeline-user
+  data:
+    mongodb:
+      uri: mongodb://localhost:27017/twitter
+  cloud:
+    stream:
+      function:
+        definition:
+          TweetConsumer
+          #producer;processor;consumer
+      kafka:
+        binder:
+          brokers: localhost:9092
+          replicationFactor: 1
+      bindings:
+        TweetConsumer-in-0:
+          destination: tweets
+  zipkin:
+    base-url: http://localhost:9411
+server:
+  port: 8087
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include:
+        - metrics
+
+redis:
+  address: redis://192.168.0.15:6379        

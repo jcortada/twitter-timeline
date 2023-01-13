@@ -18,6 +18,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
 
 import com.devs4j.twitter.timeline.user.Repository.UserTimelineRepository;
+import com.devs4j.twitter.timeline.user.client.TweetClient;
 import com.devs4j.twitter.timeline.user.model.dto.TweetDto;
 import com.devs4j.twitter.timeline.user.model.dto.UserTimelineDto;
 import com.devs4j.twitter.timeline.user.model.entity.UserTimelineEntity;
@@ -30,8 +31,11 @@ public class TimelineService {
 	@Autowired
 	UserTimelineRepository timelineRepository;
 
-    @Autowired
+    //@Autowired
     private RestTemplate restTemplate;
+    
+    @Autowired
+    private TweetClient tweetClient;
     
 	@Autowired
 	ModelMapper mapper;
@@ -89,8 +93,14 @@ public class TimelineService {
 		}
 	}
 	
-	
 	public ResponseEntity<TweetDto>  getTweet(String tweetId) {
+		TweetDto tweetDto = tweetClient.getTweet(tweetId);
+		
+		return ResponseEntity.ok(tweetDto); 
+	}
+	
+	/*
+	public ResponseEntity<TweetDto>  getTweet2(String tweetId) {
 		
 		log.info("tweetId: " + tweetId);
 		ResponseEntity<TweetDto> exchange =
@@ -104,5 +114,5 @@ public class TimelineService {
 		log.info("tweet: " + exchange.getBody());
 		
 		return exchange;
-	}
+	}*/
 }

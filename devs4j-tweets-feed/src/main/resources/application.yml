@@ -12,29 +12,42 @@ spring:
       source: tweetBinding-out-0
       kafka:
         binder:
-          brokers: localhost:9092
+          brokers: raspberry:9092
           replicationFactor: 1
       bindings:
         tweetBinding-out-0:
           destination: tweets
+  zipkin:
+    baseUrl: https://192.168.99.100:9411/
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://raspberry:8761/eureka
+    
+  instance:
+    prefer-ip-address: true
+             
 server:
   port: 8086
 
-        
 management:
   endpoints:
     web:
       exposure:
         include: "*"
+  zipkin:
+    tracing:
+      endpoint: http://raspberry:9411/api/v2/spans
   tracing:
     sampling:
       probability: 1.0
-  metrics:
+  metrics:    
     distribution:
       percentiles-histogram:
         greeting: true
         http:
-          server:
+          server:            
             requests: true
 
 logging:

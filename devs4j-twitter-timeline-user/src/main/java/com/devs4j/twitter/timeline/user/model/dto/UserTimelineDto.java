@@ -1,5 +1,6 @@
 package com.devs4j.twitter.timeline.user.model.dto;
 
+import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 
@@ -12,7 +13,12 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class UserTimelineDto {
+public class UserTimelineDto implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 2562942982890352193L;
+	
 	/*
 	 * AccountId
 	 */

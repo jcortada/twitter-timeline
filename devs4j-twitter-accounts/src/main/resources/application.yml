@@ -6,3 +6,11 @@ spring:
       uri: mongodb://localhost:27017/twitter
 server:
   port: 8085
+
+eureka:
+  instance:
+    prefer-ip-address: true
+  client:
+    serviceUrl:
+      defaultZone: http://raspberry:8761/eureka
+    

@@ -1,5 +1,8 @@
 package com.devs4j.twitter.timeline.user.model.entity;
 
+import java.io.Serializable;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.Date;
 import java.util.List;
 
@@ -16,7 +19,12 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class UserTimelineEntity {
+public class UserTimelineEntity implements Serializable{
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -5740527558627125042L;
 
 	/*
 	 * AccountId
@@ -24,6 +32,7 @@ public class UserTimelineEntity {
 	@Id
 	private String id;
 	
-	private List<String> tweets;
+	@Builder.Default
+	private List<String> tweets = Collections.emptyList();
 	private Date updatedAt;
 }

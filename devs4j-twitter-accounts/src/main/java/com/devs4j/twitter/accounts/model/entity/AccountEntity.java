@@ -3,7 +3,6 @@ package com.devs4j.twitter.accounts.model.entity;
 import java.util.List;
 
 import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import lombok.AllArgsConstructor;
@@ -25,8 +24,12 @@ public class AccountEntity {
 	private String username;
 	private String password;
 	
-	private boolean isCelebrity;
+	//private boolean isCelebrity;
+	
+	private int followersCount;
+	private int followingCount;
 	
 	//@DBRef
-	private List<String> accountIds; 
+	private List<String> followers; 
+	private List<String> following; 
 }

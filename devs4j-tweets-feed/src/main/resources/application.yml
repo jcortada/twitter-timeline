@@ -1,6 +1,6 @@
 spring:
   application:
-    name: tweets-feed
+    name: twitter-feed
   output:
     ansi:
       enabled: ALWAYS

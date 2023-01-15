@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import com.devs4j.twitter.timeline.user.model.dto.TweetDto;
 
 
-@FeignClient("tweets-feed")
+@FeignClient("twitter-feed")
 public interface TweetClient {
 
 	@RequestMapping(method = RequestMethod.GET, value = "/feed/{tweetId}", produces = "application/json")

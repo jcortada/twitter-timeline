@@ -1,9 +1,11 @@
 spring:
   application:
-    name: timeline-user
+    name: twitter-user-timeline
   output:
     ansi:
       enabled: ALWAYS    
+#  cache:
+#    type: redis
   data:
     mongodb:
       uri: mongodb://localhost:27017/twitter
@@ -64,5 +66,3 @@ logging:
             servlet:
               DispatcherServlet: DEBUG
 
-redis:
-  address: redis://raspberry:6379        

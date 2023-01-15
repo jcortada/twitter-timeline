@@ -1,6 +1,9 @@
 package com.devs4j.twitter.accounts.model.dto;
 
+import java.util.Collections;
 import java.util.List;
+
+import org.springframework.data.annotation.Transient;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -19,7 +22,17 @@ public class AccountDto {
 	private String username;
 	private String password;
 	
-	private boolean isCelebrity;
+	private int followersCount;
+	private int followingCount;
 
-	private List<String> accountIds; 
+	@Builder.Default()
+	private List<String> followers = Collections.emptyList(); 
+
+	@Builder.Default()
+	private List<String> following = Collections.emptyList();
+	
+	public boolean isCelebrity() {
+		return this.followersCount > 10;
+	};
+
 }

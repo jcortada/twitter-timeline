@@ -32,6 +32,10 @@ public class Devs4jTwitterAccountsApplication implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) throws Exception {
+		//initialize();
+	}
+	
+	private void initialize() {
 		Faker feku = new Faker(new Locale("es-ES"));
 
 		List<String> list = new ArrayList<String>();
@@ -46,14 +50,18 @@ public class Devs4jTwitterAccountsApplication implements CommandLineRunner {
 			AccountDto build = AccountDto.builder().firstname(firstName).lastname(lastName)
 					.username(cleanString(username))
 					.password("devs4j")
-					.isCelebrity(false)
 					.build();
 
-			build.setAccountIds(list);
 
 			log.info("first name: {} last name: {}", firstName, lastName);
 
-			list.add(service.save(build).getId());
+			AccountDto saved = service.save(build);
+			
+			for (String id : list) {
+				service.follow(saved.getId(), id);
+			}
+			
+			list.add(saved.getId());
 
 		}
 

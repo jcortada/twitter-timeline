@@ -1,4 +1,4 @@
-package com.devs4j.tweets.feed.service;
+package com.devs4j.twitter.feed.service;
 
 import java.util.Optional;
 import java.util.function.Supplier;
@@ -12,9 +12,9 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
-import com.devs4j.tweets.feed.model.dto.TweetDto;
-import com.devs4j.tweets.feed.model.entity.TweetEntity;
-import com.devs4j.tweets.feed.repository.TweetRepository;
+import com.devs4j.twitter.feed.model.dto.TweetDto;
+import com.devs4j.twitter.feed.model.entity.TweetEntity;
+import com.devs4j.twitter.feed.repository.TweetRepository;
 
 @Service
 public class FeedService {

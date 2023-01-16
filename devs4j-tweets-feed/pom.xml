@@ -8,7 +8,7 @@
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.devs4j</groupId>
-	<artifactId>devs4j-tweets-feed</artifactId>
+	<artifactId>devs4j-twitter-feed</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>devs4j-tweets-feed</name>
 	<description>Demo project for Spring Boot</description>

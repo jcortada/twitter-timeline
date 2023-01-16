@@ -1,4 +1,4 @@
-package com.devs4j.tweets.feed.model.entity;
+package com.devs4j.twitter.feed.model.entity;
 
 import java.util.Date;
 

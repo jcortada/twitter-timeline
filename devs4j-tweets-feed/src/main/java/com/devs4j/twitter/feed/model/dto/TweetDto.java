@@ -1,4 +1,4 @@
-package com.devs4j.tweets.feed.model.dto;
+package com.devs4j.twitter.feed.model.dto;
 
 import java.util.Date;
 

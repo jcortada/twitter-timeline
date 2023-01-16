@@ -1,4 +1,4 @@
-package com.devs4j.tweets.feed.controller;
+package com.devs4j.twitter.feed.controller;
 
 import java.util.Date;
 import java.util.Optional;
@@ -15,8 +15,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.devs4j.tweets.feed.model.dto.TweetDto;
-import com.devs4j.tweets.feed.service.FeedService;
+import com.devs4j.twitter.feed.model.dto.TweetDto;
+import com.devs4j.twitter.feed.service.FeedService;
 
 @RequestMapping("/feed")
 @RestController

@@ -1,4 +1,4 @@
-package com.devs4j.tweets.feed.service;
+package com.devs4j.twitter.feed.service;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

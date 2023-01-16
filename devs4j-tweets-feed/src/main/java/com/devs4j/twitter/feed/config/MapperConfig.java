@@ -1,4 +1,4 @@
-package com.devs4j.tweets.feed.config;
+package com.devs4j.twitter.feed.config;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.context.annotation.Bean;

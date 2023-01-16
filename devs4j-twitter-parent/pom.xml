@@ -28,22 +28,13 @@
 			<artifactId>spring-boot-starter-data-mongodb</artifactId>
 		</dependency>
 		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-web</artifactId>
-		</dependency>
-		<dependency>
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
-			<artifactId>spring-cloud-starter-openfeign</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-stream</artifactId>
 		</dependency>
-
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-devtools</artifactId>
@@ -71,6 +62,11 @@
 			<scope>test</scope>
 			<classifier>test-binder</classifier>
 			<type>test-jar</type>
+		</dependency>
+		<dependency>
+			<groupId>org.modelmapper</groupId>
+			<artifactId>modelmapper</artifactId>
+			<version>2.4.4</version>
 		</dependency>
 	</dependencies>
 	<dependencyManagement>
@@ -102,4 +98,10 @@
 	</build>
 
 	<packaging>pom</packaging>
+	<modules>
+		<module>../devs4j-twitter-timeline-user</module>
+		<module>../devs4j-tweets-feed</module>
+		<module>../devs4j-twitter-accounts</module>
+		<module>../devs4j-twitter-gateway</module>
+	</modules>
 </project>

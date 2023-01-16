@@ -1,9 +1,6 @@
 package com.devs4j.twitter.accounts;
 
 import java.text.Normalizer;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Locale;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -12,11 +9,7 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-import com.devs4j.twitter.accounts.model.dto.AccountDto;
-import com.devs4j.twitter.accounts.model.entity.AccountEntity;
 import com.devs4j.twitter.accounts.service.AccountService;
-import com.github.javafaker.Faker;
-import com.github.javafaker.Name;
 
 @SpringBootApplication
 public class Devs4jTwitterAccountsApplication implements CommandLineRunner {
@@ -35,6 +28,7 @@ public class Devs4jTwitterAccountsApplication implements CommandLineRunner {
 		//initialize();
 	}
 	
+	/*
 	private void initialize() {
 		Faker feku = new Faker(new Locale("es-ES"));
 
@@ -65,7 +59,7 @@ public class Devs4jTwitterAccountsApplication implements CommandLineRunner {
 
 		}
 
-	}
+	}*/
 
 	public static String cleanString(String texto) {
 		texto = Normalizer.normalize(texto, Normalizer.Form.NFD);

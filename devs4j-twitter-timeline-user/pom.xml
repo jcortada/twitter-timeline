@@ -5,16 +5,16 @@
 		<groupId>com.devs4j</groupId>
 		<artifactId>devs4j-twitter-parent</artifactId>
 		<version>0.0.1-SNAPSHOT</version>
-		<relativePath >../devs4j-twitter-parent</relativePath> <!-- lookup parent from repository -->
+		<relativePath>../devs4j-twitter-parent</relativePath> <!-- lookup parent from repository -->
 	</parent>
 	<artifactId>devs4j-twitter-timeline-user</artifactId>
 	<name>devs4j-twitter-timeline-user</name>
 	<description>Demo project for Spring Boot</description>
-	<properties>
-		<java.version>11</java.version>
-		<spring-cloud.version>2021.0.5</spring-cloud.version>
-	</properties>
 	<dependencies>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
 		<dependency>
 			<groupId>org.redisson</groupId>
 			<artifactId>redisson</artifactId>

@@ -5,12 +5,16 @@
 		<groupId>com.devs4j</groupId>
 		<artifactId>devs4j-twitter-parent</artifactId>
 		<version>0.0.1-SNAPSHOT</version>
-		<relativePath >../devs4j-twitter-parent</relativePath> <!-- lookup parent from repository -->
+		<relativePath>../devs4j-twitter-parent</relativePath> <!-- lookup parent from repository -->
 	</parent>
 	<artifactId>devs4j-twitter-feed</artifactId>
 	<name>devs4j-twitter-feed</name>
 	<description>Demo project for Spring Boot</description>
 	<dependencies>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-stream-binder-kafka</artifactId>
@@ -31,11 +35,6 @@
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-sleuth-zipkin</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-configuration-processor</artifactId>
-			<optional>true</optional>
 		</dependency>
 	</dependencies>
 	<build>

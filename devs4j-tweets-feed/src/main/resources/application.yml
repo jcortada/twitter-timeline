@@ -18,7 +18,7 @@ spring:
         tweetBinding-out-0:
           destination: tweets
   zipkin:
-    baseUrl: https://192.168.99.100:9411/
+    baseUrl: http://raspberry:9411/
   sleuth:
     async:
       enabled: true
@@ -26,8 +26,7 @@ spring:
 eureka:
   client:
     serviceUrl:
-      defaultZone: http://raspberry:8761/eureka
-    
+      defaultZone: http://raspberry:8761/eureka   
   instance:
     prefer-ip-address: true
              
